@@ -3,23 +3,31 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { MovieState } from "../movieState";
 
+import { motion, useIsPresent } from "framer-motion";
+import { pageAnimation } from "../animation";
+
 const MovieDetails = () => {
   let history = useLocation();
   const url = history.pathname;
   const [movies, setMovies] = useState(MovieState);
   const [movie, setMovie] = useState(null);
-
+  const isPresent = useIsPresent();
   useEffect(() => {
     const currentMovie = movies.filter((satateMovie) => {
       return satateMovie.url === url;
     });
-    setMovie(currentMovie[0]);
-  }, [movies, url]);
+    isPresent && setMovie(currentMovie[0]);
+  }, [movies, url, isPresent]);
 
   return (
     <>
       {movie && (
-        <Details>
+        <Details
+          exit="exit"
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+        >
           <HeadLine>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt={movie.title} />
@@ -44,7 +52,7 @@ const MovieDetails = () => {
   );
 };
 
-const Details = styled.div`
+const Details = styled(motion.div)`
   color: white;
 `;
 
