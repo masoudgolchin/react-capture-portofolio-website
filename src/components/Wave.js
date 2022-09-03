@@ -5,7 +5,7 @@ import { waveAnimation } from "../animation";
 const Wave = () => {
   return (
     <WaveSvg
-      width="1440"
+      width="2000"
       height="363"
       viewBox="0 0 1440 363"
       fill="none"
@@ -26,6 +26,7 @@ const WaveSvg = styled.svg`
   position: absolute;
   left: 0;
   z-index: 1;
+  width: 100%;
 `;
 
 export default Wave;
