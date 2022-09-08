@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { About } from "../style";
 import Toggle from "./Toggle";
-import { AnimateSharedLayout } from "framer-motion";
+import { LayoutGroup } from "framer-motion";
+
+import { useScroll } from "./useScroll";
+import { fade } from "../animation";
 
 const FaqSection = () => {
-  const [faqToggle, setFaqToggle] = useState(false);
+  const [element, controls] = useScroll();
+
   return (
-    <Faq>
+    <Faq ref={element} variants={fade} animate={controls} initial="hidden">
       <h2>
         Any Suestions? <span>FAQ</span>
       </h2>
-      <AnimateSharedLayout>
+      <LayoutGroup>
         <Toggle title="How do i start?">
           <div className="answer">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
@@ -60,7 +64,7 @@ const FaqSection = () => {
             </p>
           </div>
         </Toggle>
-      </AnimateSharedLayout>
+      </LayoutGroup>
     </Faq>
   );
 };

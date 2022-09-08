@@ -81,6 +81,9 @@ export const lineAnim = {
   },
   show: {
     width: "100%",
+    transition: {
+      duration: 1,
+    },
   },
 };
 
@@ -110,5 +113,16 @@ export const sliderContainer = {
       ease: "easeOut",
       when: "beforeChildren",
     },
+  },
+};
+
+export const scrollReveal = {
+  hidden: {
+    opacity: 0,
+    scale: 1.2,
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
   },
 };
