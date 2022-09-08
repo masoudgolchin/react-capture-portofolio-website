@@ -9,6 +9,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
 
+import ScrollTop from "./components/ScrollTop";
+
 function App() {
   const location = useLocation();
   return (
@@ -23,6 +25,7 @@ function App() {
           <Route path="/contact" exact element={<ContactUs />}></Route>
         </Routes>
       </AnimatePresence>
+      <ScrollTop />
     </div>
   );
 }
