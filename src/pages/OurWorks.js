@@ -76,9 +76,16 @@ const Work = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;
-
   h2 {
     padding: 1rem 0;
+  }
+
+  @media (max-width: 1300px) {
+    padding: 2rem;
+
+    h2 {
+      font-size: 3rem;
+    }
   }
 `;
 
@@ -88,6 +95,9 @@ const Movie = styled(motion.div)`
     height: 0.5rem;
     background: #23d997;
     margin-bottom: 3rem;
+    @media (max-width: 1300px) {
+      height: 0.25rem;
+    }
   }
 
   img {
